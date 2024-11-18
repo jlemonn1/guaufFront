@@ -11,3 +11,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* Estilo global para aplicar Patrick Hand a toda la app */
+* {
+  font-family: "Patrick Hand", cursive;
+  font-optical-sizing: auto;
+}

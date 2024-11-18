@@ -1,38 +1,260 @@
-.App {
+/* Estilo general */
+html {
+  margin: 0;
+  padding: 0;
+  background-color: #fffaf2;
+  color: #333;
+  border: 5px solid #fbc02d; /* Borde exterior amarillo estilo Mario */
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+/* Contenedor principal sin borde ni fondo */
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Logo estilo retro */
+.logo {
+  display: block;
+  margin: 0 auto 20px;
+  width: 150px;
+  height: auto;
+}
+
+/* Título estilo videojuego */
+h2 {
+  text-align: center;
+  color: #ff9800;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+/* Párrafo estilo retro */
+p {
+  font-size: 16px;
+  margin: 10px 0;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Estilo para los formularios */
+form {
+  display: flex;
+  flex-direction: column;
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-radius: 10px;
+  border: 2px solid #81d4fa;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Inputs personalizados estilo Mario */
+input, textarea {
+  margin: 5px 0;
+  padding: 12px;
+  border-radius: 8px;
+  border: 2px solid #8bc34a; /* Verde estilo tubos Mario */
+  background-color: #fff;
+  font-size: 16px;
+  color: #333;
+  box-shadow: inset 0px 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%; /* Asegura que el input ocupe todo el ancho */
+  box-sizing: border-box; /* Incluye padding y borde en el ancho total */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+
+input:focus, textarea:focus {
+  border-color: #ff7043; /* Color naranja estilo fuego Mario */
+  outline: none;
+}
+
+/* Botones de acción estilo power-up */
+button {
+  background-color: #ff7043;
+  color: white;
+  padding: 12px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+  background-color: #ff5722; /* Tonalidad más intensa */
+  transform: translateY(-2px); /* Efecto de salto */
+}
+
+.guauf-info-card {
+  position: fixed;
+  top: 50%; /* Centrado verticalmente */
+  left: 50%; /* Centrado horizontalmente */
+  transform: translate(-50%, -50%); /* Mueve la tarjeta hacia arriba y a la izquierda para centrar */
+  background-color: #ffd54f; /* Amarillo pastel */
+  color: #333;
+  width: 80%;
+  max-width: 400px;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+
+.card-content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.card-content p{
+  font-size: 18px;
+}
+
+/* Botón para cerrar la tarjeta */
+.close-btn {
+  background-color: #e53935;
   color: white;
+  border: none;
+  padding: 10px 15px;
+  margin-top: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
 }
 
-.App-link {
-  color: #61dafb;
+.close-btn:hover {
+  background-color: #d32f2f;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Preguntas estilo retro */
+label {
+  font-size: 16px;
+  margin-bottom: 5px;
 }
+
+
+.success-message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4rem; /* Cambia el tamaño según lo desees */
+  color: green;
+  z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
+}
+
+
+.img-container {
+  display: flex;            /* Usar flexbox para centrar la imagen */
+  justify-content: center; /* Centrar horizontalmente */
+  margin: 30px;         /* Espacio alrededor de la imagen */
+  margin-bottom: 30px;
+}
+
+
+.datos-imagen {
+  border: 2px solid #8bc34a; /* Color del borde (puedes cambiarlo a tu preferencia) */
+  border-radius: 10px;      /* Borde redondeado */           /* Espacio interno */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra opcional para darle profundidad */
+}
+
+/* App.css */
+.image-upload {
+  margin-top: 5px;
+  margin-bottom: 15px;
+  width: 100%;
+  display: flex; /* Agregado para mostrar en línea */
+  align-items: center; /* Centrar verticalmente los elementos */
+}
+
+.image-upload img {
+  margin-left: 10px; /* Espacio entre el botón y la imagen */
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+}
+
+.custom-button {
+  background-color: #4CAF50; /* Color de fondo del botón */
+  color: white; /* Color del texto */
+  padding: 10px 20px; /* Espaciado interno */
+  border: none; /* Sin borde */
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer; /* Cambia el cursor al pasar el mouse */
+  font-size: 16px; /* Tamaño de fuente */
+  transition: background-color 0.3s ease; /* Efecto de transición */
+}
+
+.custom-button:hover {
+  background-color: #45a049; /* Color del botón al pasar el mouse */
+}
+
+
+/* En tu archivo CSS (App.css) */
+.spinner-container {
+  position: fixed; /* Posición fija para cubrir toda la pantalla */
+  top: 0;          /* Desde la parte superior */
+  left: 0;         /* Desde la parte izquierda */
+  right: 0;        /* Desde la parte derecha */
+  bottom: 0;       /* Desde la parte inferior */
+  display: flex;   /* Usar flexbox para centrar */
+  justify-content: center; /* Centrar horizontalmente */
+  align-items: center;     /* Centrar verticalmente */
+  background-color: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente */
+  z-index: 1000;  /* Asegúrate de que esté encima de otros elementos */
+}
+
+
+/* Campo de WhatsApp con transición suave */
+.whatsapp-field {
+  display: inline-flex;
+  align-items: center;
+}
+
+.whatsapp-field label {
+  display: inline-flex;
+  align-items: center;
+  font-size: 16px;
+}
+
+.whatsapp-field input[type="checkbox"] {
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  margin-left: 10px;
+  border: 2px solid #8bc34a; /* Borde verde */
+  border-radius: 4px;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.whatsapp-field input[type="checkbox"]:checked {
+  background-color: #8bc34a; /* Verde cuando está marcado */
+}
+
+.whatsapp-field input[type="checkbox"]::before {
+  content: '✔'; /* Icono de check */
+  display: none;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 18px;
+}
+
+.whatsapp-field input[type="checkbox"]:checked::before {
+  display: block;
+}
+
+.whatsapp-field-hidden {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+}
+
