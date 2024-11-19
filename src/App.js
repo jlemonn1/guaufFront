@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Route, Routes, useParams } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, useParams, useNavigate } from 'react-router-dom';
 import Formulario from './componentes/Formulario';
 import Datos from './componentes/Datos';
 import GuaufInfoCard from './componentes/GuaufInfoCard';
@@ -10,12 +10,71 @@ const App = () => {
   return (
     <Router>
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route path="/:id" element={<Main />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </Router>
   );
 };
+
+const Home = () => {
+  const navigate = useNavigate();
+  const [visible, setVisible] = useState(true);
+  const [placa, setPlaca] = useState('');
+  const [perfil, setPerfil] = useState(null);
+
+  const handleClose = () => {
+    setVisible(false); // Oculta la tarjeta de bienvenida
+  };
+
+  const handleInputChange = (e) => {
+    setPlaca(e.target.value);
+  };
+
+  const handleNavigate = () => {
+
+
+    placa ? navigate(`/${placa}`) : alert("Introduce un valor");
+  };
+
+  return (
+    <div className="home-container">
+      {visible && (
+        <div className="guauf-info-card">
+          <div className="card-content">
+            <h2>¡Bienvenido a Guauf! 🐾</h2>
+            <p>Estás a punto de crear el perfil de tu fiel compañero peludo. Aquí podrás rellenar los datos que quieras que se muestren cuando alguien escanee el código QR de tu mascota.</p>
+            <p>Es muy simple: solo completa los campos que consideres importantes. ¡No te preocupes! Solo se verá lo que tú decidas. Nombre, raza, dirección, o si tu perro prefiere las croquetas de pollo... ¡Tú eliges!</p>
+            <p>Es como la tarjeta de presentación de tu mascota, para que siempre pueda estar identificada de la mejor manera posible. 🐶</p>
+            <p>¿Aún no tienes una placa? Consíguela en nuestro sitio web: <a href="https://dominio3d.me" target="_blank" rel="noopener noreferrer">dominio3d.me</a>.</p>
+            <button className="close-btn" onClick={handleClose}>Cerrar</button>
+          </div>
+        </div>
+      )}
+
+      <div className="placa-input-container">
+        <h2>¿Tienes una placa? 🚀</h2>
+        <p>Ingresa el número de la placa de tu mascota para ver su información:</p>
+        <div className="input-wrapper">
+          <input
+            type="number"
+            value={placa}
+            onChange={handleInputChange}
+            placeholder="Ingresa el número de placa"
+            className="placa-input"
+          />
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '1rem' }}>
+            <button onClick={handleNavigate} className="go-btn">Buscar</button>
+            <button onClick={() => setVisible(true)} className="go-btn">Info</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  );
+};
+
 
 const ErrorPage = () => {
   return <div>Página no encontrada. Verifica la URL.</div>;
@@ -42,7 +101,7 @@ const Main = () => {
   useEffect(() => {
     const fetchDatos = async () => {
       try {
-        const response = await fetch(`https://guauf.ddns.net/api/datos/${id}`);
+        const response = await fetch(`https://guauf.es/api/datos/${id}`);
         if (response.ok) {
           const data = await response.json();
           setDatos(data);
@@ -98,7 +157,7 @@ const Main = () => {
     setLoading(true); // Mostrar spinner al iniciar la carga
 
     try {
-      const response = await fetch(`https://guauf.ddns.net/api/datos/actualizar/${id}`, {
+      const response = await fetch(`https://guauf.es/api/datos/actualizar/${id}`, {
         method: 'PUT',
         body: formDataToSend,
       });

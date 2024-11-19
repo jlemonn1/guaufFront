@@ -1,70 +1,114 @@
-# Getting Started with Create React App
+# Guauf! - Frontend 🐾
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+  
 
-## Available Scripts
+Este es el frontend de **Guauf!**, una aplicación diseñada para registrar mascotas y permitir que sus datos sean accesibles mediante un código QR único. Aquí puedes rellenar los datos que quieras sobre tu mascota y asegurarte de que esté identificada de la mejor manera posible.
 
-In the project directory, you can run:
+  
 
-### `npm start`
+## 🚀 Funcionalidades
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+  
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+-  **Pantalla de bienvenida**: Un mensaje introductorio con información sobre cómo usar la aplicación.
 
-### `npm test`
+-  **Búsqueda por número de placa**: Introduce el número de placa para buscar la información asociada a tu mascota.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+-  **Formulario dinámico**: Completa los datos de tu mascota si la placa no está registrada.
 
-### `npm run build`
+-  **Visualización de datos**: Si la placa ya está registrada, muestra la información correspondiente.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+-  **Spinner de carga**: Indica visualmente cuando la aplicación está procesando una acción.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+-  **Notificaciones de éxito y error**: Muestra mensajes claros sobre el estado de las acciones realizadas.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+  
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🛠️ Tecnologías utilizadas
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+  
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+-  [React](https://reactjs.org/) - Framework de JavaScript para interfaces de usuario.
 
-## Learn More
+-  [React Router](https://reactrouter.com/) - Manejo de rutas en la aplicación.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+-  [React Loader Spinner](https://mhnpd.github.io/react-loader-spinner/) - Componente de spinner para indicar estado de carga.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+-  [CSS personalizado](./App.css) - Estilización específica para el proyecto.
 
-### Code Splitting
+  
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+  
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 📂 Estructura del proyecto
 
-### Making a Progressive Web App
+```bash
+src/ 
+├── componentes/   
+│   ├── Formulario.js # Formulario para completar datos de la mascota │ 
+│   ├── Datos.js # Componente para mostrar los datos de la mascota 
+│   ├── GuaufInfoCard.js # Tarjeta informativa inicial 
+├── App.js # Configuración principal de la aplicación 
+├── App.css # Estilos de la aplicación 
+└── index.js # Punto de entrada principa
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+``` 
+## 🔧 Instalación y configuración 
+### 1. Clonar el repositorio 
+```bash
+ git clone https://github.com/jlemonn1/guaufFront.git 
+ cd guaufFront
+ ```
+### 2. Instalar dependencias 
+```bash
+ npm install
+ ```
+### 3. Configurar apiUrl 
+```bash
+ apiUrl = https://apiRest
+ ```
+ ### 4. Ejecutar el servidor en desarrollo 
+```bash
+ npm start
+ ```
+ ### 5. Crear build para producción 
+```bash
+ npm run build
+ ```
 
-### Advanced Configuration
+## 📖 Cómo usar la aplicación
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+1.  **Pantalla de inicio**:
+    
+    -   Verás un mensaje de bienvenida y un campo para ingresar el número de la placa de tu mascota.
+    -   Si no tienes una placa, se incluye un enlace para adquirir una.
+2.  **Buscar una placa**:
+    
+    -   Ingresa el número de placa y presiona el botón **"Buscar"**.
+    -   Si la placa no está registrada, podrás rellenar los datos correspondientes.
+3.  **Formulario de registro**:
+    
+    -   Completa los campos deseados y sube una foto si lo consideras necesario.
+    -   Al enviar, la información se guardará y estará disponible para futuras consultas.
+4.  **Visualización de datos**:
+    
+    -   Si la placa ya está registrada, podrás ver los datos asociados.
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## ✨ Mejoras futuras
 
-### `npm run build` fails to minify
+-   Implementar autenticación para gestionar múltiples usuarios.
+-   Diseño más avanzado para mejorar la experiencia de usuario.
+-   Posible localización.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+----------
+
+## 🤝 Contribuciones
+
+¡Las contribuciones son bienvenidas! Si tienes sugerencias o mejoras, crea un _issue_ o un _pull request_.

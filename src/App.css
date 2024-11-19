@@ -258,3 +258,12 @@ label {
   overflow: hidden;
 }
 
+.placa-input-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Hace que ocupe toda la altura de la ventana */
+  padding: 1rem; /* Opcional, para un poco de espacio */
+  background-color: #f9f9f9; /* Opcional, un color de fondo */
+}
